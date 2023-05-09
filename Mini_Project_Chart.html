@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Daily Routines of Famous People</title>
+	<style>
+    .chart-container {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#chartContainer {
+	height: 500px;
+}
+
+  </style>
+</head>
+<body>
+	<div class="chart-container"> 
+		<div id="chartContainer"></div>
+	</div>
+
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<script>
+    // Define chart options
+    var chartOptions = {
+    animationEnabled: true,
+    title: {
+      text: "Daily Routines of Famous People"
+    },
+    axisY: {
+      title: "Hours",
+      includeZero: true
+    },
+    toolTip: {
+      shared: true
+    },
+    legend: {
+      cursor: "pointer",
+      itemclick: toggleDataSeries
+    },
+    data: [
+      {
+        type: "stackedColumn",
+        name: "Sleep",
+        showInLegend: true,
+        color: "rgba(255, 99, 132, 0.5)",
+        dataPoints: [
+          { label: "Bill Gates", y: 7 },
+          { label: "Oprah Winfrey", y: 8 },
+          { label: "Mark Zuckerberg", y: 8 },
+          { label: "Dwayne Johnson", y: 6 },
+          { label: "Michelle Obama", y: 7 }
+        ]
+      },
+      {
+        type: "stackedColumn",
+        name: "Work",
+        showInLegend: true,
+        color: "rgba(54, 162, 235, 0.5)",
+        dataPoints: [
+          { label: "Bill Gates", y: 9 },
+          { label: "Oprah Winfrey", y: 8 },
+          { label: "Mark Zuckerberg", y: 10 },
+          { label: "Dwayne Johnson", y: 12 },
+          { label: "Michelle Obama", y: 6 }
+        ]
+      },
+      {
+        type: "stackedColumn",
+        name: "Exercise",
+        showInLegend: true,
+        color: "rgba(255, 206, 86, 0.5)",
+        dataPoints: [
+          { label: "Bill Gates", y: 1 },
+          { label: "Oprah Winfrey", y: 1 },
+          { label: "Mark Zuckerberg", y: 1 },
+          { label: "Dwayne Johnson", y: 2 },
+          { label: "Michelle Obama", y: 1 }
+        ]
+      },
+      {
+        type: "stackedColumn",
+        name: "Leisure",
+        showInLegend: true,
+        color: "rgba(75, 192, 192, 0.5)",
+        dataPoints: [
+          { label: "Bill Gates", y: 2 },
+          { label: "Oprah Winfrey", y: 2 },
+          { label: "Mark Zuckerberg", y: 1 },
+          { label: "Dwayne Johnson", y: 2 },
+          { label: "Michelle Obama", y: 3 }
+        ]
+      },
+      {
+        type: "stackedColumn",
+        name: "Reading",
+        showInLegend: true,
+        color: "rgba(153, 102, 255, 0.5)",
+        dataPoints: [
+          { label: "Bill Gates", y: 1 },
+          { label: "Oprah Winfrey", y: 1 },
+          { label: "Mark Zuckerberg", y: 2 },
+          { label: "Dwayne Johnson", y: 1 },
+          { label: "Michelle Obama", y: 2 }
+        ]
+      },
+      {
+        type: "stackedColumn",
+        name: "other",
+        showInLegend: true,
+        color: "rgba(255, 0, 0, 0.75)",
+        dataPoints: [
+          { label: "Bill Gates", y: 4 },
+          { label: "Oprah Winfrey", y: 4 },
+          { label: "Mark Zuckerberg", y: 2 },
+          { label: "Dwayne Johnson", y: 1 },
+          { label: "Michelle Obama", y: 5 }
+        ]
+      }
+    ]
+  };
+  
+  // Create chart instance
+  var chart = new CanvasJS.Chart("chartContainer", chartOptions);
+  
+  // Render chart
+  chart.render();
+
+  function toggleDataSeries(e) {
+    if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+    e.dataSeries.visible = false;
+    } else {
+    e.dataSeries.visible = true;
+    }
+    chart.render();
+    }
+  
+  </script>
+</body>
+</html>
